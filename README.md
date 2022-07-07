@@ -1,4 +1,5 @@
-<h1 align="center">Aplicação Meuflix</h1>w  
+<h1 align="center">Aplicação Meuflix</h1>
+
 Tabela de conteúdos
 =================
 <!--ts-->
