@@ -15,7 +15,6 @@ import com.voltaire.meuflix.repositories.MovieRepository
 import com.voltaire.meuflix.retrofit.webclient.MoviesWebClient
 import com.voltaire.meuflix.utils.MOVIE_ID_KEY
 import com.voltaire.meuflix.utils.toastCreator
-import com.voltaire.meuflix.viewmodel.HomeViewModel
 import com.voltaire.meuflix.viewmodel.MovieViewModel
 import com.voltaire.meuflix.viewmodel.factory.MovieViewModelFactory
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -23,14 +22,8 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class MovieActivity : AppCompatActivity() {
 
     private lateinit var binding : ActivityMovieBinding
-
-    private val adapter by lazy {
-        SimilarMovieAdapter()
-    }
-
     private val viewModel: MovieViewModel by viewModel()
-
-    private lateinit var args : Movie
+    private lateinit var args: Movie
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,15 +33,6 @@ class MovieActivity : AppCompatActivity() {
 
         configureToolbar()
         configureInformationMovie()
-    }
-
-    private fun configureToolbar() {
-        setSupportActionBar(binding.movieToolbar)
-        supportActionBar?.let { toolbar ->
-            toolbar.setDisplayHomeAsUpEnabled(true)
-            toolbar.setHomeAsUpIndicator(R.drawable.ic_baseline_arrow_back_24)
-            toolbar.title = null
-        }
     }
 
     override fun onResume() {
@@ -71,7 +55,7 @@ class MovieActivity : AppCompatActivity() {
             onComplete = { resource ->
             resource.data.let {
                 val listMovies = it?.minus(args)
-                adapter.updateData(listMovies as MutableList)
+                binding.movieRvSimilar.adapter = SimilarMovieAdapter(listMovies as MutableList<Movie>)
                 binding.movieRvSimilar.layoutManager = LinearLayoutManager(this, HORIZONTAL, false)
             }
             resource.error?.let { error ->  toastCreator(this, error) }
@@ -90,6 +74,14 @@ class MovieActivity : AppCompatActivity() {
                 movieTxtDesc.text = getString(R.string.description, args.description)
                 movieTxtCast.text = getString(R.string.cast, args.cast)
             }
+        }
+    }
+    private fun configureToolbar() {
+        setSupportActionBar(binding.movieToolbar)
+        supportActionBar?.let { toolbar ->
+            toolbar.setDisplayHomeAsUpEnabled(true)
+            toolbar.setHomeAsUpIndicator(R.drawable.ic_baseline_arrow_back_24)
+            toolbar.title = null
         }
     }
 }
