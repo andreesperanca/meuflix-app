@@ -31,9 +31,11 @@ As seguintes ferramentas estão sendo utilizadas no desenvolvimento do projeto:
 
 ## Features 🛠 
 
-- [x] Requisição Web com Retrofit + OkHttpClient.
-- [x] Detalhes dos filmes.
+- [x] Integração REST com Retrofit + OkHttpClient.
 - [x] Arquitetura MVVM.
+- [x] Injeção de dependências com Koin.
+- [x] Higher Order functions.
+- [x] Generics.
 
 ## Autor
 
