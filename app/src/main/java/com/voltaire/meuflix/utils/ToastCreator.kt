@@ -1,4 +1,4 @@
-package com.voltaire.meuflix.utils.generics
+package com.voltaire.meuflix.utils
 
 import android.content.Context
 import android.widget.Toast

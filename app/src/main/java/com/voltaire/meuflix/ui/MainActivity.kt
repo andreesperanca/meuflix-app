@@ -1,37 +1,30 @@
 package com.voltaire.meuflix.ui
 
-import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView.VERTICAL
 import com.voltaire.meuflix.adapters.GenreAdapter
 import com.voltaire.meuflix.databinding.ActivityMainBinding
-import com.voltaire.meuflix.models.Genre
 import com.voltaire.meuflix.repositories.HomeRepository
 import com.voltaire.meuflix.retrofit.webclient.GenreWebClient
-import com.voltaire.meuflix.utils.MOVIE_ID_KEY
-import com.voltaire.meuflix.utils.generics.toastCreator
+import com.voltaire.meuflix.utils.toastCreator
 import com.voltaire.meuflix.viewmodel.HomeViewModel
+import com.voltaire.meuflix.viewmodel.MovieViewModel
 import com.voltaire.meuflix.viewmodel.factory.HomeViewModelFactory
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    private val webClient = GenreWebClient()
 
     private val adapter by lazy {
         GenreAdapter(this)
     }
 
-    private val viewModel by lazy {
-        val repository = HomeRepository(webClient)
-        val factory = HomeViewModelFactory(repository)
-        val provider = ViewModelProvider(this, factory)
-        provider[HomeViewModel::class.java]
-    }
+    private val viewModel: HomeViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

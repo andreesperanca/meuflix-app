@@ -1,3 +1,5 @@
+package com.voltaire.meuflix.utils.generics
+
 import com.voltaire.meuflix.utils.REQUISICAO_NAO_SUCEDIDA
 import retrofit2.Call
 import retrofit2.Callback
