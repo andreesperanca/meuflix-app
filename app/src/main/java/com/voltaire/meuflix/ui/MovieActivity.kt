@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView.HORIZONTAL
 import com.bumptech.glide.Glide
@@ -56,7 +57,7 @@ class MovieActivity : AppCompatActivity() {
             resource.data.let {
                 val listMovies = it?.minus(args)
                 binding.movieRvSimilar.adapter = SimilarMovieAdapter(listMovies as MutableList<Movie>)
-                binding.movieRvSimilar.layoutManager = LinearLayoutManager(this, HORIZONTAL, false)
+                binding.movieRvSimilar.layoutManager = GridLayoutManager(this, 2)
             }
             resource.error?.let { error ->  toastCreator(this, error) }
         })
