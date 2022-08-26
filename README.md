@@ -29,12 +29,12 @@ As seguintes ferramentas estão sendo utilizadas no desenvolvimento do projeto:
 - [Retrofit](https://square.github.io/retrofit/)
 - [OkHttpClient](https://square.github.io/okhttp/4.x/okhttp/okhttp3/-ok-http-client/)
 
-## Features 🛠 
+## Características 🛠 
 
 - [x] Integração REST com Retrofit + OkHttpClient.
 - [x] Arquitetura MVVM.
 - [x] Injeção de dependências com Koin.
-- [x] Higher Order functions.
+- [x] Higher Orders Functions
 - [x] Generics.
 
 ## Autor
