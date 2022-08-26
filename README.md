@@ -13,7 +13,7 @@ Tabela de conteúdos
 ## Screenshots :camera: 
 <h1 align="center">
   <img style="border-radius: 50%;" src="./assets/meuflix_home.png" width="250px;" alt=""/>
-  <img style="border-radius: 50%;" src="./assets/movies_details.png" width="250px;" alt=""/>
+  <img style="border-radius: 50%;" src="./assets/movies_details1.png" width="250px;" alt=""/>
   </h1>
 
 
