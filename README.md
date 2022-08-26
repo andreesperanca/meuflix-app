@@ -34,7 +34,7 @@ As seguintes ferramentas forão utilizadas no desenvolvimento do projeto:
 - [x] Integração REST com Retrofit + OkHttpClient.
 - [x] Arquitetura MVVM.
 - [x] Injeção de dependências com Koin.
-- [x] Higher Orders Functions
+- [x] Higher Orders Functions.
 - [x] Generics.
 
 ## Autor
