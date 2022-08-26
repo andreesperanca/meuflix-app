@@ -22,7 +22,7 @@ Aplicação cópia da Netflix feita com Kotlin e utilizando a arquitetura de pro
 
 ## Tecnologias :rocket:
 
-As seguintes ferramentas estão sendo utilizadas no desenvolvimento do projeto:
+As seguintes ferramentas forão utilizadas no desenvolvimento do projeto:
 
 - [Kotlin](https://kotlinlang.org/)
 - [Glide](https://github.com/bumptech/glide)
