@@ -13,7 +13,7 @@ Tabela de conteúdos
 ## Screenshots :camera: 
 <h1 align="center">
   <img style="border-radius: 50%;" src="./assets/meuflix_home.png" width="250px;" alt=""/>
-  <img style="border-radius: 50%;" src="./assets/movies_details.png" width="250px;" alt=""/>
+  <img style="border-radius: 50%;" src="./assets/movies_details1.png" width="250px;" alt=""/>
   </h1>
 
 
@@ -29,7 +29,7 @@ As seguintes ferramentas forão utilizadas no desenvolvimento do projeto:
 - [Retrofit](https://square.github.io/retrofit/)
 - [OkHttpClient](https://square.github.io/okhttp/4.x/okhttp/okhttp3/-ok-http-client/)
 
-## Características 🛠 
+## Técnicas 🛠 
 
 - [x] Integração REST com Retrofit + OkHttpClient.
 - [x] Arquitetura MVVM.
