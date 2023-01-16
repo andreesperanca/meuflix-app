@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.motion.widget.MotionLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/color_bg"
+        app:layoutDescription="@xml/fragment_movies_xml_constraintlayout_scene">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/tb_moviesToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.jackandphantom.carouselrecyclerview.CarouselRecyclerview
+            android:id="@+id/rv_moviesHighlights"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintTop_toBottomOf="@id/tb_moviesToolbar"
+            android:background="@android:color/transparent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_movies"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintTop_toBottomOf="@id/rv_moviesHighlights"
+            android:background="@android:color/transparent"
+            tools:listitem="@layout/category_item" />
+
+        <ProgressBar
+            android:id="@+id/pg_inicio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.motion.widget.MotionLayout>
+</layout>

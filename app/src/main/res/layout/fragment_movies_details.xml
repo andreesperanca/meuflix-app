@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/nLayout"
+    android:background="@color/black">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:background="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.MovieActivity">
+
+        <ImageView
+            android:id="@+id/movie_img"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:src="@drawable/shadows"
+            app:layout_constraintDimensionRatio="16:9"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/movie_toolbar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:navigationIcon="@drawable/ic_baseline_arrow_back_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <ImageView
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:src="@drawable/ic_play"
+            app:layout_constraintBottom_toBottomOf="@id/movie_img"
+            app:layout_constraintEnd_toEndOf="@id/movie_img"
+            app:layout_constraintStart_toStartOf="@id/movie_img"
+            app:layout_constraintTop_toTopOf="@id/movie_img" />
+
+        <TextView
+            android:id="@+id/movie_title"
+            android:fontFamily="@font/benasneue"
+            android:textSize="25sp"
+            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="22dp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/movie_img"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="Arremesando Alto" />
+
+        <TextView
+            android:id="@+id/movie_txt_desc"
+            android:fontFamily="@font/benasneue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="48dp"
+            android:ellipsize="end"
+            android:lineSpacingExtra="3sp"
+            android:maxLines="3"
+            android:textColor="@color/gray_light"
+            android:textSize="18sp"
+            app:layout_constraintTop_toBottomOf="@id/movie_title"
+            tools:text="@string/cast"/>
+
+        <TextView
+            android:id="@+id/movie_txt_cast"
+            android:fontFamily="@font/benasneue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="48dp"
+            android:ellipsize="end"
+            android:lineSpacingExtra="3sp"
+            android:maxLines="3"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="18sp"
+            app:layout_constraintTop_toBottomOf="@id/movie_txt_desc"
+            tools:text="@string/description"/>
+
+        <TextView
+            android:id="@+id/txt_fixed"
+            android:fontFamily="@font/benasneue"
+            android:textSize="25sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:text="@string/similar"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/movie_txt_cast" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/movieRvSimilar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_fixed"
+            tools:listitem="@layout/movie_item_similar" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

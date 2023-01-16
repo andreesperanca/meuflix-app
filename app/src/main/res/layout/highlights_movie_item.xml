@@ -1,26 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:showIn="@layout/activity_main"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-
+    
     <ImageView
         android:src="@drawable/placeholder_bg"
         android:scaleType="centerCrop"
-        android:clipToOutline="true"
-        android:background="@drawable/movie_item_bg"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintDimensionRatio="3:4"
+        android:background="@drawable/movie_item_bg"
+        android:clipToOutline="true"
+        app:layout_constraintDimensionRatio="16:9"
         android:layout_marginStart="4dp"
         android:layout_marginEnd="4dp"
         android:id="@+id/iv_img_cover"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"/>
+        android:layout_height="180dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

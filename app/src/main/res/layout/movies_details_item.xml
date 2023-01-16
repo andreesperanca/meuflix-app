@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat android:background="@color/black"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <TextView
+        android:id="@+id/movie_title"
+        android:fontFamily="@font/benasneue"
+        android:textSize="25sp"
+        android:layout_marginTop="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="22dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/movie_img"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="Arremesando Alto" />
+
+    <TextView
+        android:id="@+id/movie_txt_desc"
+        android:fontFamily="@font/benasneue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="48dp"
+        android:ellipsize="end"
+        android:lineSpacingExtra="3sp"
+        android:maxLines="3"
+        android:textColor="@color/gray_light"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@id/movie_title"
+        tools:text="@string/cast"/>
+
+    <TextView
+        android:id="@+id/movie_txt_cast"
+        android:fontFamily="@font/benasneue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="48dp"
+        android:ellipsize="end"
+        android:lineSpacingExtra="3sp"
+        android:maxLines="3"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@id/movie_txt_desc"
+        tools:text="@string/description"/>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

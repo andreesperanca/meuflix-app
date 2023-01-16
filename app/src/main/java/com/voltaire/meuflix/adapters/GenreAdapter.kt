@@ -1,22 +1,17 @@
 package com.voltaire.meuflix.adapters
 
-import android.content.Context
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.HORIZONTAL
+import com.voltaire.meuflix.SimpleCategory
+import com.voltaire.meuflix.categories
 import com.voltaire.meuflix.databinding.CategoryItemBinding
-import com.voltaire.meuflix.models.Genre
-import com.voltaire.meuflix.ui.MovieActivity
-import com.voltaire.meuflix.utils.MOVIE_ID_KEY
 
-class GenreAdapter(
-    private val context: Context,
-    private val listGenre: MutableList<Genre> = mutableListOf(),
-    var listener: (genre: Genre) -> Unit = {}
-) : RecyclerView.Adapter<GenreAdapter.CategoryViewHolder>() {
+class GenreAdapter(): RecyclerView.Adapter<GenreAdapter.CategoryViewHolder>() {
+
+    val categoryList: List<SimpleCategory> = categories
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryViewHolder {
         val binding =
@@ -25,38 +20,21 @@ class GenreAdapter(
     }
 
     override fun onBindViewHolder(holder: CategoryViewHolder, position: Int) {
-        holder.bind(listGenre[position])
+        holder.bind(categoryList[position])
     }
 
-    override fun getItemCount(): Int = listGenre.size
-
-    fun updateData(data: List<Genre>?) {
-        notifyItemRangeRemoved(0, this.listGenre.size)
-        this.listGenre.clear()
-        data?.let { this.listGenre.addAll(it) }
-        notifyItemRangeInserted(0, this.listGenre.size)
-    }
+    override fun getItemCount(): Int = categoryList.size
 
     inner class CategoryViewHolder(private val binding: CategoryItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        private lateinit var genre: Genre
-
-        init {
-            binding.root.setOnClickListener {
-                if (::genre.isInitialized) {
-                    listener(genre)
-                }
-            }
-        }
-
-        fun bind(genre: Genre) {
+        fun bind(category: SimpleCategory) {
             //name genre
-            binding.txtTitle.text = genre.name
+            binding.txtTitle.text = category.name
             // configure recyclerView
                 binding.rvCategory.layoutManager =
                     LinearLayoutManager(itemView.context, HORIZONTAL, false)
-                binding.rvCategory.adapter = MovieAdapter(listMovie = genre.listMovies)
+                binding.rvCategory.adapter = MovieAdapter(listMovie = category.movieList)
         }
     }
 }

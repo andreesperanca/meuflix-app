@@ -10,7 +10,5 @@ class HomeViewModel(
 ) : ViewModel()
 {
 
-    fun getAllGenres(onComplete: (Resource<List<Genre>>) -> Unit = {}) {
-        return repository.getAllGenres(onComplete = onComplete)
-    }
+    fun getAllGenres() = repository.getAllGenres()
 }

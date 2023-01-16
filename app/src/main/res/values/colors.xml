@@ -10,4 +10,14 @@
     <color name="red">#FD0000</color>
     <color name="gray">#222222</color>
     <color name="gray_light">#dddddd</color>
+
+    // DISNEY
+    <color name="dark_blue">#0e0b14</color>
+    <color name="light_blue">#232737</color>
+
+    <color name="test1">#1A4AA7</color>
+    <color name="test2">#0B101A</color>
+
+    <color name="topbarcolor">#050446</color>
+
 </resources>
