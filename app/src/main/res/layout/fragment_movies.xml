@@ -10,14 +10,16 @@
         android:background="@drawable/color_bg"
         app:layoutDescription="@xml/fragment_movies_xml_constraintlayout_scene">
 
-        <androidx.appcompat.widget.Toolbar
+
+        <include
             android:id="@+id/tb_moviesToolbar"
+            layout="@layout/custom_toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <com.jackandphantom.carouselrecyclerview.CarouselRecyclerview
+        <com.voltaire.meuflix.utils.generics.AutoScrollRecyclerView
             android:id="@+id/rv_moviesHighlights"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

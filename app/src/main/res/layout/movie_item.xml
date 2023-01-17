@@ -8,11 +8,10 @@
     tools:showIn="@layout/activity_main"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <ImageView
-        android:src="@drawable/placeholder_bg"
+    <com.google.android.material.imageview.ShapeableImageView
+        app:srcCompat="@drawable/movie_4"
+        app:shapeAppearanceOverlay="@style/circleImageView"
         android:scaleType="centerCrop"
-        android:clipToOutline="true"
-        android:background="@drawable/movie_item_bg"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -21,6 +20,7 @@
         android:layout_marginEnd="4dp"
         android:id="@+id/iv_img_cover"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

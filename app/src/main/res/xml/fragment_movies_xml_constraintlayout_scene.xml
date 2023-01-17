@@ -9,10 +9,8 @@
 
         <OnSwipe
             motion:touchAnchorId="@id/rv_movies"
-            motion:onTouchUp="stop"
+            motion:onTouchUp="autoComplete"
             />
-
-
         <KeyFrameSet></KeyFrameSet>
     </Transition>
 
@@ -54,8 +52,8 @@
 
         <Constraint
             android:id="@+id/tb_moviesToolbar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             motion:layout_constraintStart_toStartOf="parent"
             motion:layout_constraintEnd_toEndOf="parent"
             motion:layout_constraintTop_toTopOf="parent" />
