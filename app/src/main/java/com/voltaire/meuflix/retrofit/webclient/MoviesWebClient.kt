@@ -11,7 +11,6 @@ import kotlinx.coroutines.launch
 class MoviesWebClient(
     private val service: WebService = AppRetrofit().webService,
 ) {
-
     fun getMoviesByGenre(
         genreName : String,
         onSuccess: (listMovies: List<Movie>?) -> Unit,

@@ -8,5 +8,12 @@
     <string name="search">Pesquisar</string>
     <string name="favorites">Favoritos</string>
     <string name="fetchForGenre">Buscar por categorias</string>
+    <string name="meuflix">MEUFLIX</string>
+    <string name="welcomeUserExample">Bem-vindo,\n André!</string>
+    <string name="editProfile">Editar perfis</string>
+    <string name="settings">Configurações</string>
+    <string name="account">Conta</string>
+    <string name="help">Ajuda</string>
+    <string name="exit">Sair</string>
 
 </resources>

@@ -4,50 +4,122 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.constraintlayout.motion.widget.MotionLayout
-        android:id="@+id/constraintLayout"
+        android:id="@+id/motionLayout1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/color_bg"
         app:layoutDescription="@xml/fragment_movies_xml_constraintlayout_scene">
 
-
-        <include
+        <com.voltaire.meuflix.utils.custom.CustomToolbar
             android:id="@+id/tb_moviesToolbar"
-            layout="@layout/custom_toolbar"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <com.voltaire.meuflix.utils.generics.AutoScrollRecyclerView
+        <com.voltaire.meuflix.utils.custom.KScrollRecyclerView
             android:id="@+id/rv_moviesHighlights"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="8dp"
+
+            android:layout_marginStart="@dimen/default_margin"
+            android:layout_marginTop="@dimen/default_margin"
+            android:layout_marginEnd="@dimen/default_margin"
+            android:background="@android:color/transparent"
+
             app:layout_constraintTop_toBottomOf="@id/tb_moviesToolbar"
-            android:background="@android:color/transparent" />
+
+            tools:itemCount="1"
+            tools:listitem="@layout/highlights_movie_item" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_movies"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            app:layout_constraintTop_toBottomOf="@id/rv_moviesHighlights"
+
+            android:layout_marginStart="@dimen/default_margin"
+            android:layout_marginEnd="@dimen/default_margin"
             android:background="@android:color/transparent"
+
+            app:layout_constraintTop_toBottomOf="@id/rv_moviesHighlights"
+
             tools:listitem="@layout/category_item" />
 
         <ProgressBar
-            android:id="@+id/pg_inicio"
+            android:id="@+id/pg_moviesFragment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+
             android:visibility="invisible"
+
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <androidx.constraintlayout.motion.widget.MotionLayout
+            android:id="@+id/motionLayout2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/dark_blue"
+            app:layoutDescription="@xml/fragment_movies_scene"
+            app:layout_constraintTop_toBottomOf="@id/tb_moviesToolbar">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/myAccount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:background="@drawable/my_account_bg"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:fontFamily="@font/sf_display_font"
+                    android:text="@string/editProfile"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:fontFamily="@font/sf_display_font"
+                    android:text="@string/settings"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:fontFamily="@font/sf_display_font"
+                    android:text="@string/account"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:fontFamily="@font/sf_display_font"
+                    android:text="@string/help"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:fontFamily="@font/sf_display_font"
+                    android:text="@string/exit"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </androidx.constraintlayout.motion.widget.MotionLayout>
     </androidx.constraintlayout.motion.widget.MotionLayout>
 </layout>

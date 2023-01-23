@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        app:constraintSetEnd="@id/endMyAccount"
+        app:constraintSetStart="@+id/startMyAccount"
+        app:duration="200"
+        >
+
+
+    </Transition>
+
+    <ConstraintSet android:id="@+id/startMyAccount">
+
+        <Constraint
+            android:id="@+id/myAccount"
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            app:layout_constraintBottom_toTopOf="parent"
+            android:background="@drawable/my_account_bg"
+            />
+
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/endMyAccount">
+
+        <Constraint
+            android:id="@+id/myAccount"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+
+
+
+            />
+
+    </ConstraintSet>
+</MotionScene>

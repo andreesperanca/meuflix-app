@@ -3,26 +3,21 @@
     xmlns:motion="http://schemas.android.com/apk/res-auto">
 
     <Transition
-        motion:constraintSetEnd="@+id/end"
         motion:constraintSetStart="@id/start"
-        motion:duration="1000">
-
+        motion:constraintSetEnd="@+id/end"
+        motion:duration="500">
         <OnSwipe
-            motion:touchAnchorId="@id/rv_movies"
             motion:onTouchUp="autoComplete"
-            />
-        <KeyFrameSet></KeyFrameSet>
+            motion:touchAnchorId="@id/rv_movies" />
     </Transition>
 
-
     <ConstraintSet android:id="@+id/start">
-
         <Constraint
             android:id="@+id/tb_moviesToolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            motion:layout_constraintStart_toStartOf="parent"
             motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
             motion:layout_constraintTop_toTopOf="parent" />
 
         <Constraint
@@ -32,8 +27,8 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="15dp"
             android:layout_marginEnd="8dp"
-            motion:layout_constraintTop_toBottomOf="@id/tb_moviesToolbar"
-            android:background="@android:color/transparent" />
+            android:background="@android:color/transparent"
+            motion:layout_constraintTop_toBottomOf="@id/tb_moviesToolbar" />
 
         <Constraint
             android:id="@+id/rv_movies"
@@ -41,10 +36,18 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
-            motion:layout_constraintTop_toBottomOf="@id/rv_moviesHighlights"
-            android:background="@android:color/transparent"/>
+            android:background="@android:color/transparent"
+            motion:layout_constraintTop_toBottomOf="@id/rv_moviesHighlights" />
 
-
+        <Constraint
+            android:id="@+id/myAccount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@android:color/transparent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toBottomOf="@id/tb_moviesToolbar" />
 
     </ConstraintSet>
 
@@ -54,8 +57,8 @@
             android:id="@+id/tb_moviesToolbar"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            motion:layout_constraintStart_toStartOf="parent"
             motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
             motion:layout_constraintTop_toTopOf="parent" />
 
 
@@ -66,17 +69,26 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="15dp"
             android:layout_marginEnd="8dp"
-            motion:layout_constraintTop_toBottomOf="@id/tb_moviesToolbar"
-            android:background="@android:color/transparent" />
+            android:background="@android:color/transparent"
+            motion:layout_constraintTop_toBottomOf="@id/tb_moviesToolbar" />
 
         <Constraint
-                android:id="@+id/rv_movies"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
-                motion:layout_constraintTop_toBottomOf="@id/tb_moviesToolbar"
-                android:background="@android:color/transparent"/>
+            android:id="@+id/rv_movies"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            motion:layout_constraintTop_toBottomOf="@id/tb_moviesToolbar" />
+
+        <Constraint
+            android:id="@+id/myAccount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@android:color/transparent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toBottomOf="@id/tb_moviesToolbar" />
 
     </ConstraintSet>
+
 </MotionScene>

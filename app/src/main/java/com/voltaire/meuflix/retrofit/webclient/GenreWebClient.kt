@@ -11,7 +11,6 @@ import kotlinx.coroutines.launch
 class GenreWebClient(
     private val service: WebService = AppRetrofit().webService,
 ) {
-
     fun getAllGenre(
         onSuccess: (listGenres: List<Genre>?) -> Unit,
         onFailure: (error: String?) -> Unit

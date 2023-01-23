@@ -20,4 +20,8 @@
 
     <color name="topbarcolor">#050446</color>
 
+
+    <color name="configcolor">#2b2c38</color>
+    <color name="colorplan">#2f313c</color>
+
 </resources>

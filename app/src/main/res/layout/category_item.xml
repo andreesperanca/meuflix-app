@@ -4,36 +4,43 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginBottom="8dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".ui.MoviesFragment">
+
+    tools:background="@color/light_blue">
 
     <TextView
-        android:text="Comédia"
-        android:textSize="18sp"
         android:id="@+id/txt_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:textSize="@dimen/subtitle_text_size"
         android:textColor="@color/white"
-        android:textStyle="bold"
-        android:fontFamily="@font/regularfont"
+        android:layout_marginStart="@dimen/default_margin"
+        android:layout_marginTop="@dimen/default_margin"
+        android:fontFamily="@font/sf_display_font"
+
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="16dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+
+        tools:text="Comédia" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_category"
-        tools:itemCount="5"
-        tools:listitem="@layout/movie_item"
-        android:background="@android:color/transparent"
-        android:paddingStart="10dp"
-        android:paddingEnd="10dp"
-        android:clipToPadding="false"
+        android:layout_height="150dp"
         android:layout_width="match_parent"
+
+        android:paddingStart="@dimen/default_padding"
+        android:paddingEnd="@dimen/default_padding"
+        android:clipToPadding="false"
+        android:layout_marginTop="@dimen/default_margin"
+        android:background="@android:color/transparent"
+
         app:layout_constraintTop_toBottomOf="@id/txt_title"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginTop="8dp"
-        android:layout_height="150dp" />
+
+        tools:listitem="@layout/movie_item"
+        tools:background="@color/light_blue" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
