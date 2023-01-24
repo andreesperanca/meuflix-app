@@ -35,7 +35,7 @@ class SimilarMovieAdapter(
         fun bind(movie: Movie) {
             Glide
                 .with(binding.root.context)
-                .load(movie.urlImage)
+                .load(movie.backdropPath)
                 .into(binding.imgCover)
         }
     }

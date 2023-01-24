@@ -15,5 +15,6 @@
     <string name="account">Conta</string>
     <string name="help">Ajuda</string>
     <string name="exit">Sair</string>
+    <string name="connectionError">Problemas de conexão com o servidor.</string>
 
 </resources>

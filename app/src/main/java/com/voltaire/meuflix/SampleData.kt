@@ -13,7 +13,6 @@ data class SimpleCategory (
 )
 
 val movies = listOf<SimpleMovie>(
-    SimpleMovie(R.drawable.movie11),
     SimpleMovie(R.drawable.movie2),
     SimpleMovie(R.drawable.movie3),
     SimpleMovie(R.drawable.movie4),

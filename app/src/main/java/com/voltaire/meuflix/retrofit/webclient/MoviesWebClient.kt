@@ -8,20 +8,20 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class MoviesWebClient(
-    private val service: WebService = AppRetrofit().webService,
-) {
-    fun getMoviesByGenre(
-        genreName : String,
-        onSuccess: (listMovies: List<Movie>?) -> Unit,
-        onFailure: (error: String?) -> Unit
-    ) {
-        CoroutineScope(Dispatchers.IO).launch {
-            makeRequest<List<Movie>>(
-                call = service.getAllMoviesByGenre(genreName),
-                onFailure = onFailure,
-                onSuccess = onSuccess
-            )
-        }
-    }
-}
+//class MoviesWebClient(
+//    private val service: WebService = AppRetrofit().webService,
+//) {
+//    fun getMoviesByGenre(
+//        genreName : String,
+//        onSuccess: (listMovies: List<Movie>?) -> Unit,
+//        onFailure: (error: String?) -> Unit
+//    ) {
+//        CoroutineScope(Dispatchers.IO).launch {
+//            makeRequest<List<Movie>>(
+//                call = service.getAllMoviesByGenre(genreName),
+//                onFailure = onFailure,
+//                onSuccess = onSuccess
+//            )
+//        }
+//    }
+//}

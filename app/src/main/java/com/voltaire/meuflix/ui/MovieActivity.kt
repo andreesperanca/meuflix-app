@@ -1,23 +1,14 @@
 package com.voltaire.meuflix.ui
 
-import android.os.Bundle
-import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.GridLayoutManager
-import com.bumptech.glide.Glide
-import com.voltaire.meuflix.R
-import com.voltaire.meuflix.adapters.SimilarMovieAdapter
 import com.voltaire.meuflix.databinding.ActivityMovieBinding
 import com.voltaire.meuflix.models.Movie
-import com.voltaire.meuflix.utils.MOVIE_ID_KEY
-import com.voltaire.meuflix.utils.toastCreator
-import com.voltaire.meuflix.viewmodel.MovieViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MovieActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMovieBinding
-    private val viewModel: MovieViewModel by viewModel()
+//    private val viewModel: MovieViewModel by viewModel()
     private lateinit var args: Movie
 
 //    override fun onCreate(savedInstanceState: Bundle?) {
