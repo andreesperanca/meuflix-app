@@ -8,11 +8,22 @@ import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
-abstract class BaseFragment<T : ViewDataBinding>(
+abstract class BaseFragment<
+        T : ViewDataBinding,
+        V : ViewModel
+        >(
     @LayoutRes private val layoutId: Int
+
 ) : Fragment() {
     protected lateinit var binding: T
+    protected lateinit var viewModel: V
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setupViewModel()
+    }
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -28,7 +39,6 @@ abstract class BaseFragment<T : ViewDataBinding>(
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupToolbar()
-        setupViewModel()
         setupObservers()
     }
 

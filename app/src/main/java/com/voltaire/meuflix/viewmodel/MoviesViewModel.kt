@@ -43,4 +43,9 @@ class MoviesViewModel(
         _loadingUI.value = boolean
     }
 
+    fun fetchContent() {
+        fetchHighlightsMovies()
+        fetchHighlightsCategories()
+    }
+
 }

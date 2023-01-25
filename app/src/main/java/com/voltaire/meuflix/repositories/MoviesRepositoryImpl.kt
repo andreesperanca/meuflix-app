@@ -1,9 +1,9 @@
 package com.voltaire.meuflix.repositories
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.voltaire.meuflix.models.Category
 import com.voltaire.meuflix.models.Genre
+import com.voltaire.meuflix.models.GenreRequest
 import com.voltaire.meuflix.models.Movie
 import com.voltaire.meuflix.retrofit.webclient.GenreWebClient
 import com.voltaire.meuflix.utils.Resource
@@ -24,21 +24,27 @@ class MoviesRepositoryImpl(
 
     init {
         CoroutineScope(Dispatchers.IO).launch { fetchGenres() }
-        _genres.postValue(null)
     }
 
     override suspend fun fetchHighlightsCategories(): Resource<List<Category>> {
         return withContext(Dispatchers.IO) {
             apiCall {
-                val returnList = mutableListOf<Category>()
+                val categories = mutableListOf<Category>()
                 if (genre.value == null) {
                     fetchGenres()
                 }
-                genre.value?.forEach { genre ->
-                    val movieList = webClient.fetchHighlightGenres(genre.id.toString())
-                    returnList.add(Category(name = genre.name, movieList = movieList.results))
+                genre.value?.let { genres ->
+                    genres.forEach { genre ->
+                        val movieList = webClient.fetchHighlightGenres(genre.id.toString())
+                        categories.add(
+                            Category(
+                                name = genre.name,
+                                movieList = movieList.results
+                            )
+                        )
+                    }
                 }
-                Success(returnList)
+                Success(categories)
             }
         }
     }
@@ -54,8 +60,10 @@ class MoviesRepositoryImpl(
 
     override suspend fun fetchGenres() {
         return withContext(Dispatchers.IO) {
-            val genres = webClient.fetchGenres().genres.sortGenres()
-            _genres.postValue(genres)
+            apiCall {
+                val genres = webClient.fetchGenres().genres.sortGenres()
+                Success(data = genres)
+            }
         }
     }
 }

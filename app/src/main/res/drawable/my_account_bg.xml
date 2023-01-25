@@ -3,12 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="rectangle"
     >
-
-
-
     <stroke
-        android:color="@color/configcolor"
+        android:color="@color/dark_blue"
         android:width="2dp"/>
-    <solid android:color="@color/colorplan"/>
-
+    <solid android:color="@color/light_blue"/>
 </shape>

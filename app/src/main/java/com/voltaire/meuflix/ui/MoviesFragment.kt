@@ -3,9 +3,6 @@ package com.voltaire.meuflix.ui
 import android.os.Bundle
 import android.view.View
 import android.widget.ProgressBar
-import android.widget.Toast
-import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.HORIZONTAL
@@ -22,7 +19,9 @@ import com.voltaire.meuflix.utils.toastCreator
 import com.voltaire.meuflix.viewmodel.MoviesViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class MoviesFragment : BaseFragment<FragmentMoviesBinding>(
+class MoviesFragment : BaseFragment<
+        FragmentMoviesBinding,
+        MoviesViewModel>(
     R.layout.fragment_movies
 ) {
     /** UI COMPONENTS **/
@@ -35,14 +34,9 @@ class MoviesFragment : BaseFragment<FragmentMoviesBinding>(
     private val normalRvAdapter by lazy {
         GenreAdapter()
     }
-
     private val adapterTest by lazy {
         HighlightsMoviesAdapter()
     }
-
-
-    /** ViewModel **/
-    private val viewModel: MoviesViewModel by viewModel()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.rvMoviesHighlights.apply {
@@ -55,13 +49,10 @@ class MoviesFragment : BaseFragment<FragmentMoviesBinding>(
             adapter = normalRvAdapter
         }
     }
-
     override fun onResume() {
         super.onResume()
-        viewModel.fetchHighlightsMovies()
-        viewModel.fetchHighlightsCategories()
+        viewModel.fetchContent()
     }
-
     override fun initComponents() {
         with(binding) {
             cToolbar = tbMoviesToolbar
@@ -70,7 +61,6 @@ class MoviesFragment : BaseFragment<FragmentMoviesBinding>(
             pBar = pgMoviesFragment
         }
     }
-
     override fun setupToolbar() {
         cToolbar.apply {
             userPhotoProfileClick {
@@ -84,20 +74,22 @@ class MoviesFragment : BaseFragment<FragmentMoviesBinding>(
             searchIconClick { toastCreator("Search Button Click") }
         }
     }
-
-    override fun setupViewModel() {}
+    override fun setupViewModel() {
+        val viewModel: MoviesViewModel by viewModel()
+        this.viewModel = viewModel
+    }
     override fun setupObservers() {
-        viewModel.categoriesResource.observe(viewLifecycleOwner) {
-            when (it) {
+        viewModel.categoriesResource.observe(viewLifecycleOwner) { categoriesResource ->
+            when (categoriesResource) {
                 is Resource.Loading -> {
                     viewModel.setLoadingUI(true)
                 }
                 is Resource.Success -> {
-                    normalRvAdapter.updateList(it.data)
+                    normalRvAdapter.updateList(categoriesResource.data)
                     viewModel.setLoadingUI(false)
                 }
                 is Resource.Error -> {
-                    toastCreator(it.message ?: getString(R.string.connectionError))
+                    toastCreator(categoriesResource.message ?: getString(R.string.connectionError))
                 }
             }
         }
