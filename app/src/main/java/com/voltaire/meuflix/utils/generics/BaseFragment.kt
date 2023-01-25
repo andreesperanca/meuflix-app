@@ -12,11 +12,7 @@ import androidx.fragment.app.Fragment
 abstract class BaseFragment<T : ViewDataBinding>(
     @LayoutRes private val layoutId: Int
 ) : Fragment() {
-
     protected lateinit var binding: T
-
-
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -27,11 +23,11 @@ abstract class BaseFragment<T : ViewDataBinding>(
             lifecycleOwner = viewLifecycleOwner
             binding = this
             initComponents()
-            setupToolbar()
         }.root
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setupToolbar()
         setupViewModel()
         setupObservers()
     }

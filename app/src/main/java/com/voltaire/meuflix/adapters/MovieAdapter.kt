@@ -2,12 +2,15 @@ package com.voltaire.meuflix.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import com.voltaire.meuflix.SimpleMovie
+import com.bumptech.glide.Glide
+import com.voltaire.meuflix.R
 import com.voltaire.meuflix.databinding.MovieItemBinding
+import com.voltaire.meuflix.models.Movie
 
 class MovieAdapter (
-    private val listMovie : List<SimpleMovie> = emptyList()
+    private val listMovie : List<Movie> = emptyList()
 ) : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
@@ -22,22 +25,17 @@ class MovieAdapter (
     override fun getItemCount(): Int = listMovie.size
 
     inner class MovieViewHolder(private val binding : MovieItemBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(movie: SimpleMovie) {
+        fun bind(movie: Movie) {
             val context = binding.root.context
+            Glide
+                .with(binding.root.context)
+                .load("https://image.tmdb.org/t/p/w500/${movie.posterPath}")
+                .placeholder(R.drawable.placeholder_bg)
+                .into(binding.ivImgCover)
 
-            binding.ivImgCover.setImageResource(movie.cover)
-
-//            Glide
-//                .with(binding.root.context)
-//                .load(movie.urlImage)
-//                .placeholder(R.drawable.movie_4)
-//                .into(binding.imgCover)
-//
-//            binding.root.setOnClickListener {
-//                val intent = Intent(context, MovieActivity::class.java)
-//                intent.putExtra(MOVIE_ID_KEY, movie)
-//                context.startActivity(intent)
-//            }
+            binding.root.setOnClickListener {
+                Toast.makeText(binding.root.context, "Click Item", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 }

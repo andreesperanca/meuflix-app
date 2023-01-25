@@ -8,8 +8,6 @@ import com.voltaire.meuflix.R
 import com.voltaire.meuflix.adapters.HighlightsMoviesAdapter.*
 import com.voltaire.meuflix.databinding.HighlightsMovieItemBinding
 import com.voltaire.meuflix.models.Movie
-import com.voltaire.meuflix.models.Request
-import com.voltaire.meuflix.movies
 
 class HighlightsMoviesAdapter() : RecyclerView.Adapter<HighlightsMoviesViewHolder>() {
 
@@ -37,10 +35,10 @@ class HighlightsMoviesAdapter() : RecyclerView.Adapter<HighlightsMoviesViewHolde
     }
 
     override fun getItemCount(): Int = highlightsMoviesList.size
-    fun updateList(data: Request?) {
+    fun updateList(data: List<Movie>?) {
         if (data != null) {
-            highlightsMoviesList = data.results
-            notifyItemRangeChanged(0,data.results.size)
+            highlightsMoviesList = data
+            notifyItemRangeChanged(0,data.size)
         }
     }
 

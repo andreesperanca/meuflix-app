@@ -4,8 +4,11 @@ import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class Genre(
-    val id : Long,
-    var name : String,
-    var listMovies : List<Movie>
+data class Genre (
+    val id: Int,
+    val name: String
 ) : Parcelable
+
+data class GenreRequest (
+   val genres: List<Genre>
+)

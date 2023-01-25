@@ -8,10 +8,11 @@ import androidx.recyclerview.widget.RecyclerView.HORIZONTAL
 import com.voltaire.meuflix.SimpleCategory
 import com.voltaire.meuflix.categories
 import com.voltaire.meuflix.databinding.CategoryItemBinding
+import com.voltaire.meuflix.models.Category
 
 class GenreAdapter(): RecyclerView.Adapter<GenreAdapter.CategoryViewHolder>() {
 
-    val categoryList: List<SimpleCategory> = categories
+    var categoryList: List<Category> = emptyList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryViewHolder {
         val binding =
@@ -24,11 +25,17 @@ class GenreAdapter(): RecyclerView.Adapter<GenreAdapter.CategoryViewHolder>() {
     }
 
     override fun getItemCount(): Int = categoryList.size
+    fun updateList(data: List<Category>?) {
+        if(data != null) {
+            categoryList = data
+            notifyItemRangeChanged(0, data.size)
+        }
+    }
 
     inner class CategoryViewHolder(private val binding: CategoryItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(category: SimpleCategory) {
+        fun bind(category: Category) {
             //name genre
             binding.txtTitle.text = category.name
             // configure recyclerView
