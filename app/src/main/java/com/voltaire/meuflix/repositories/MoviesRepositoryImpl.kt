@@ -20,7 +20,7 @@ class MoviesRepositoryImpl(
 ) : MoviesRepository {
 
     private val _genres = MutableLiveData<List<Genre>?>()
-    private val genre: MutableLiveData<List<Genre>?> = _genres
+    private val genres: MutableLiveData<List<Genre>?> = _genres
 
     init {
         CoroutineScope(Dispatchers.IO).launch { fetchGenres() }
@@ -30,25 +30,16 @@ class MoviesRepositoryImpl(
         return withContext(Dispatchers.IO) {
             apiCall {
                 val categories = mutableListOf<Category>()
-                if (genre.value == null) {
-                    fetchGenres()
-                }
-                genre.value?.let { genres ->
-                    genres.forEach { genre ->
-                        val movieList = webClient.fetchHighlightGenres(genre.id.toString())
-                        categories.add(
-                            Category(
-                                name = genre.name,
-                                movieList = movieList.results
-                            )
-                        )
-                    }
+                if (genres.value == null) { fetchGenres() }
+
+                genres.value?.forEach { genre ->
+                    val movieList = webClient.fetchHighlightGenres(genre.id.toString())
+                    categories.add(Category(name = genre.name, movieList = movieList.results))
                 }
                 Success(categories)
             }
         }
     }
-
     override suspend fun fetchHighLightsMovies(): Resource<List<Movie>> {
         return withContext(Dispatchers.IO) {
             apiCall {
@@ -57,11 +48,11 @@ class MoviesRepositoryImpl(
             }
         }
     }
-
     override suspend fun fetchGenres() {
-        return withContext(Dispatchers.IO) {
+        return withContext(Dispatchers.Main) {
             apiCall {
-                val genres = webClient.fetchGenres().genres.sortGenres()
+                val genres: List<Genre> = webClient.fetchGenres().genres.sortGenres()
+                _genres.value = genres
                 Success(data = genres)
             }
         }
